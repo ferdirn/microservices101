@@ -1,0 +1,242 @@
+<div class="reveal">
+
+    <!-- Used to fade in a background when a specific slide state is reached -->
+    <div class="state-background"></div>
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h3>&nbsp;</h3>
+            <h1>Microservices 101</h1>
+            <h1>&nbsp;</h1>
+            <h3 class="inverted">By</h3>
+            <h3>Ferdi Ramdhon Nizar</h3>
+            <h5>Orami Tech Talk 14 Oktober 2016</h5>
+            <script>
+                // Delicously hacky. Look away.
+                if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+            </script>
+        </section>
+
+        <section>
+            <h3>&nbsp;</h3>
+            <h3>What the hell is microservices?</h3>
+            <h3>&nbsp;</h3>
+            <p class="fragment grow">
+                The term "microservice" was discussed at a workshop of software architects near Venice in May, 2011 to describe what the participants saw as a common architectural style that many of them had been recently exploring.
+            </p>
+        </section>
+
+        <section>
+            <p>&nbsp;</p>
+            <p>Microservices is a specialisation of and implementation approach for service-oriented architectures (SOA) used to build flexible, independently deployable software systems. As with SOA, services in a microservice architecture (MSA) are processes that communicate with each other over a network in order to fulfill a goal. Also, like SOA, these services use technology-agnostic protocols. The microservices approach is a first realisation of SOA that followed the introduction of DevOps and is becoming more popular for building continuously deployed systems.</p>
+            <h4>Wikipedia</h4>
+        </section>
+
+        <section>
+            <p>&nbsp;</p>
+            <p>Elektra King: I can give you the world</p>
+            <p>Bond: The world is not enough!</p>
+            <p>- James Bond 007 -</p>
+            <p>&nbsp;</p>
+            <p class="fragment">We already have SOA</p>
+            <p class="fragment">The SOA is not enough!</p>
+            <p>&nbsp;</p>
+            <p class="fragment">SOA vs MSA</p>
+        </section>
+
+        <section>
+            <h3>&nbsp;</h3>
+            <h3>Who is already using Microservices?</h3>
+            <p>&nbsp;</p>
+            <p class="fragment">
+                As Martin Fowler points out, Netflix, eBay, Amazon, the UK Government Digital Service, realestate.com.au, Forward, Twitter, PayPal, Gilt, Bluemix, Soundcloud, The Guardian, and many other large-scale websites and applications have all evolved from monolithic to microservices architecture.
+            </p>
+        </section>
+
+        <section>
+            <h3>Traditional Web Application Architecture (Monoliths)</h3>
+            <img src="/images/microservices101/traditional_architecture.png">
+            <p>&nbsp;</p>
+            <p>
+                It's simple. Easy to develop, maintain, and scale (running multiple copies) behind a load balancer.
+            </p>
+            <p>&nbsp;</p>
+            <h3 class="fragment">But,</h3>
+        </section>
+
+        <section>
+            <h3>It's getting bigger and bigger</h3>
+            <img src="/images/microservices101/traditional_architecture_2.png">
+            <p class="fragment">The Application feature getting bigger</p>
+            <p class="fragment">Developer Team has grown in size</p>
+        </section>
+
+        <section>
+            <h3>Problem</h3>
+            <ul>
+                <li class="fragment">
+                    The codebase becoming huge, fat, larger. Intimidates developer, especially the ones who are new to the dev team. ($> git pull nightmare master)
+                </li>
+                <li class="fragment">
+                    Sometimes, it's generating a super class (a huge code base) that contain and manage all of the business process.
+                </li>
+                <li class="fragment">
+                    Even the application has a good documentation (including class diagram or any related diagram) it is still can be difficult to understand and modify.
+                </li>
+                <li class="fragment">
+                    Overloaded IDE. Remember when ur IDE indexing your codebase for an hour or so? How about searching? It's a nightmare!
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>More Problems</h3>
+            <ul>
+                <li class="fragment">
+                    Overloaded Web Container. Sometimes, restarting the web server is necessary. And it can be take longer start up time.
+                </li>
+                <li class="fragment">
+                    Continues Deployment is difficult. With this traditional archicture, you can't be easily redeploy a single component because you have to redeploy the entire application.
+                </li>
+                <li class="fragment">
+                    Push you to do vertical scaling. Which means, you have to buy bigger server if it's already huge.
+                </li>
+                <li class="fragment">
+                    The team are not gonna work independently.
+                </li>
+                <li class="fragment">
+                    Get married to a technology stack. There are times that we are unable or having difficulty when we want to adopt to a newer technology.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Monoliths vs Microservices</h3>
+            <img src="/images/microservices101/Monoliths vs Microservices.png" width="80%">
+        </section>
+
+        <section>
+            <h3>Decentralised Data</h3>
+            <img src="/images/microservices101/decentralised-data.png" width="80%">
+        </section>
+
+        <section>
+            <h3>Microservices Architecture (MSA)</h3>
+            <p>&nbsp;</p>
+            <p>
+                A microservice is an isolated, loosely-coupled unit of development that works on a single concern.
+This is similar to the old "Unix" way of doing things: do one thing, and do it well.
+            </p>
+        </section>
+
+        <section>
+            <h3>Benefits</h3>
+            <ul>
+                <li class="fragment">
+                    Easier for a developer to understand.
+                </li>
+                <li class="fragment">
+                    The IDE is faster making developers more productive.
+                </li>
+                <li class="fragment">
+                    The Web Container starts faster, which makes developer more productive, and speed up deployments.
+                </li>
+                <li class="fragment">
+                    Each service can be deployed independently of other service - easier to deploy new versions of services frequently.
+                </li>
+                <li class="fragment">
+                    Easier to scale development. It enables you to organize the development effort. One team (person) could responsible on a single service. They can choose whatever tools they wanted to use.
+                </li>
+                <li class="fragment">
+                    Improved fault isolation.
+                </li>
+                <li class="fragment">
+                    A microservice could have more instances.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Drawbacks</h3>
+            <ul>
+                <li class="fragment">
+                    Developers must deal with the additional complexity of creating a distributed system.
+                </li>
+                <li class="fragment">
+                    Developers must setup the inter-service communication mechanism.
+                </li>
+                <li class="fragment">
+                    Implement multiple services without using distributed transactions is difficult.
+                </li>
+                <li class="fragment">
+                    Testing is more difficult.
+                </li>
+                <li class="fragment">
+                    More servers to manage.
+                </li>
+                <li class="fragment">
+                    Data sharing is hard.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Recomendations</h3>
+            <ul>
+                <li class="fragment">
+                    Ideally, each service should have only a small set of responsibilities.
+                </li>
+                <li class="fragment">
+                    One reasonable argument we've heard is that you shouldn't start with a microservices architecture.
+                </li>
+                <li class="fragment">
+                    Begin with a monolith.
+                </li>
+                <li class="fragment">
+                    Keep it modular.
+                </li>
+                <li class="fragment">
+                    Split it into microservices once the monolith becomes a problem.
+                </li>
+                <li class="fragment">
+                    Enhances the cohesion.
+                </li>
+                <li class="fragment">
+                    Decreases the coupling.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>&nbsp;</h3>
+            <h1>Thank you</h1>
+            <h1>&nbsp;</h1>
+            <h1>Q&A?</h1>
+        </section>
+
+        <section>
+            <h3>References</h3>
+            <p>https://en.wikipedia.org/wiki/Microservices</p>
+            <p>http://www.martinfowler.com/articles/microservices.html</p>
+            <p>https://smartbear.com/learn/api-design/what-are-microservices/</p>
+            <p>http://microservices.io/patterns/monolithic.html</p>
+            <p>http://microservices.io/patterns/microservices.html</p>
+            <p>https://opensource.com/resources/what-are-microservices</p>
+            <p>https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/</p>
+            <p>https://www.nginx.com/blog/introduction-to-microservices/</p>
+        </section>
+    </div>
+
+    <!-- The navigational controls UI -->
+    <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+    </aside>
+
+    <!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+    <div class="progress"><span></span></div>
+
+</div>

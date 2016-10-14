@@ -11,6 +11,9 @@ var myPpt = function(req, res){
   res.render('myppt', { title: 'My Presentation' })
 };
 
+var microservices101 = function(req, res){
+	res.render('microservices101', { title : 'Microservices 101' })
+};
 
 var controllerRoute = function(req, res){
   res.render('controller', { title: 'Remote Presentation Controller', layout: "controller_layout" })
@@ -27,10 +30,11 @@ exports.setupRemotePresenter = function(app, io, config){
 	// url is matching the id for presentations
 	app.get('/myppt', myPpt);
 
+	// url for microservices101 presentation
+	app.get('/microservices101', microservices101);
+
 
 	app.get('/controller', controllerRoute);
-
-
 
 	// setup remote control here
 	// socket.io setup
